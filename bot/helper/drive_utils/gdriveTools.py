@@ -498,17 +498,17 @@ class GoogleDriveHelper:
 
             try:
                 self.path.append(
-                    telegraph[acc_no].create_page(title='SearchX',
-                                                  author_name='Levi',
-                                                  author_url='https://t.me/l3v11BOT',
+                    telegraph[acc_no].create_page(title='Niaz',
+                                                  author_name='Niaz',
+                                                  author_url='https://t.me/Niaz_Ahsan',
                                                   html_content=self.telegraph_content[i])['path'])
             except RetryAfterError as e:
                 LOGGER.info(f"Cooldown: {e.retry_after} seconds")
                 time.sleep(e.retry_after)
                 self.path.append(
-                    telegraph[acc_no].create_page(title='SearchX',
-                                                  author_name='Levi',
-                                                  author_url='https://t.me/l3v11BOT',
+                    telegraph[acc_no].create_page(title='Niaz',
+                                                  author_name='Niaz',
+                                                  author_url='https://t.me/Niaz_Ahsan',
                                                   html_content=self.telegraph_content[i])['path'])
 
             if i != 0:
@@ -516,23 +516,23 @@ class GoogleDriveHelper:
                 self.telegraph_content[i-1] += f'<b> | <a href="https://telegra.ph/{self.path[i]}">Next</a></b>'
                 try:
                     telegraph[(acc_no - 1) if i % page_per_acc == 0 else acc_no].edit_page(path = self.path[i-1],
-                                              title='SearchX',
-                                              author_name='Levi',
-                                              author_url='https://t.me/l3v11BOT',
+                                              title='Niaz',
+                                              author_name='Niaz',
+                                              author_url='https://t.me/Niaz_Ahsan',
                                               html_content=self.telegraph_content[i-1])
                 except RetryAfterError as e:
                     LOGGER.info(f"Cooldown: {e.retry_after} seconds")
                     time.sleep(e.retry_after)
                     telegraph[(acc_no - 1) if i % page_per_acc == 0 else acc_no].edit_page(path = self.path[i-1],
-                                              title='SearchX',
-                                              author_name='Levi',
-                                              author_url='https://t.me/l3v11BOT',
+                                              title='Niaz',
+                                              author_name='Niaz',
+                                              author_url='https://t.me/Niaz_Ahsan',
                                               html_content=self.telegraph_content[i-1])
 
         msg = f"<b>Found {response_count} results matching '{file_name}' in {len(DRIVE_ID)} Drives</b> " \
               f"<b>(Time taken {time_taken}s)</b>"
 
         buttons = button_builder.ButtonMaker()
-        buttons.build_button("VIEW RESULTS 🗂️", f"https://telegra.ph/{self.path[0]}")
+        buttons.build_button("VIEW RESULTS ✅", f"https://telegra.ph/{self.path[0]}")
 
         return msg, InlineKeyboardMarkup(buttons.build_menu(1))
